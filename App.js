@@ -18,6 +18,11 @@ const App = () => {
 
   const [modalVisible, setModalVisible] = useState(false)
 
+  // El STATE se modifica por la segunda variable, no por la primera
+  setTimeout(() => {
+    setModalVisible(true)
+  }, 3000);
+
   const nuevaCitaHandler = () => 
   {
     console.log('Diste click')

@@ -18,11 +18,6 @@ const App = () => {
 
   const [modalVisible, setModalVisible] = useState(false)
 
-  // El STATE se modifica por la segunda variable, no por la primera
-  setTimeout(() => {
-    setModalVisible(true)
-  }, 3000);
-
   const nuevaCitaHandler = () => 
   {
     console.log('Diste click')
@@ -54,6 +49,7 @@ const App = () => {
       <Pressable 
         onPress = { nuevaCitaHandler }
         style = { styles.btnNuevaCita }
+        onPress={() => setModalVisible(true)}
       >
         <Text 
           style = { styles.btnTextoNuevacita }
@@ -64,7 +60,7 @@ const App = () => {
 
       <Modal
         animationType='slide'
-        visible={false}
+        visible={modalVisible}
       >
         <Text>Desde Modal</Text>
       </Modal>

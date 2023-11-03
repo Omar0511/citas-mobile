@@ -27,21 +27,38 @@ const App = () => {
       <Fragment></Fragment>
     */
 
-    <SafeAreaView>
-      <Text style={styles.titulo}>Administrado de Citas</Text>
-      <Text>Veterinaria</Text>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.titulo}>
+        Administrador de Citas
+        {''} {/* es un espacio */}
+        <Text style={styles.tituloBold}>Veterinaria</Text>
+      </Text>
     </SafeAreaView>
   );
 };
 
 // Se recomienda nombrarlo de esta forma
-const styles = StyleSheet.create({
-    titulo: {
+const styles = StyleSheet.create(
+  {
+    container:
+    {
+      backgroundColor: '#F3F4F6',
+      
+      // Toma todo el contenido de la pantalla
+      flex: 1,
+    },
+
+    titulo: 
+    {
       textAlign: 'center',
-      textTransform: 'uppercase',
       fontSize: 30,
       color: '#374151',
       fontWeight: '600',
+    },
+
+    tituloBold: {
+      fontWeight: '900',
+      color: '#6D28D9',
     }
   }
 )

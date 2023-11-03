@@ -7,11 +7,17 @@ import {
   Text,
   StyleSheet,
   Button,
+  Pressable,
 } from 'react-native';
 
 // Función
 // Un componente siempre tendrá un RETURN
 const App = () => {
+  const nuevaCitaHandler = () => 
+  {
+    console.log('Diste click')
+  }
+
   return (
     /*
       No podemos poner 2 ETIQUETAS
@@ -35,17 +41,11 @@ const App = () => {
         <Text style={styles.tituloBold}>Veterinaria</Text>
       </Text>
 
-      <Button 
-        title='Nueva Cita'
-        
-        onPress=
-        {
-          () =>
-          {
-            console.log('Presionaste')
-          }
-        }
-      ></Button>
+      <Pressable 
+        onPress = { nuevaCitaHandler }
+      >
+        <Text>Nueva Cita</Text>
+      </Pressable>
     </SafeAreaView>
   );
 };

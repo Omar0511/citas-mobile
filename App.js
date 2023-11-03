@@ -2,10 +2,11 @@ import React from 'react';
 
 import {
   // Cada que usamos un componente, debemos importarlo aquí
+  SafeAreaView,
   View,
   Text,
-  SafeAreaView,
   StyleSheet,
+  Button,
 } from 'react-native';
 
 // Función
@@ -33,6 +34,18 @@ const App = () => {
         {''} {/* es un espacio */}
         <Text style={styles.tituloBold}>Veterinaria</Text>
       </Text>
+
+      <Button 
+        title='Nueva Cita'
+        
+        onPress=
+        {
+          () =>
+          {
+            console.log('Presionaste')
+          }
+        }
+      ></Button>
     </SafeAreaView>
   );
 };
@@ -40,16 +53,14 @@ const App = () => {
 // Se recomienda nombrarlo de esta forma
 const styles = StyleSheet.create(
   {
-    container:
-    {
+    container: {
       backgroundColor: '#F3F4F6',
       
       // Toma todo el contenido de la pantalla
       flex: 1,
     },
 
-    titulo: 
-    {
+    titulo: {
       textAlign: 'center',
       fontSize: 30,
       color: '#374151',

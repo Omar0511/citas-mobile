@@ -43,16 +43,20 @@ const App = () => {
 
       <Pressable 
         onPress = { nuevaCitaHandler }
+        style = { styles.btnNuevaCita }
       >
-        <Text>Nueva Cita</Text>
+        <Text 
+          style = { styles.btnTextoNuevacita }
+        >
+          Nueva Cita
+        </Text>
       </Pressable>
     </SafeAreaView>
   );
 };
 
 // Se recomienda nombrarlo de esta forma
-const styles = StyleSheet.create(
-  {
+const styles = StyleSheet.create( {
     container: {
       backgroundColor: '#F3F4F6',
       
@@ -70,8 +74,23 @@ const styles = StyleSheet.create(
     tituloBold: {
       fontWeight: '900',
       color: '#6D28D9',
-    }
-  }
-)
+    },
+
+    btnNuevaCita: {
+      backgroundColor: '#6D28D9',
+      padding: 15,
+      marginTop: 30,
+      marginHorizontal: 20,
+      borderRadius: 10
+    },
+
+    btnTextoNuevacita: {
+      textAlign: 'center',
+      color: '#FFF',
+      fontSize: 18,
+      fontWeight: '900',
+      textTransform: 'uppercase'
+    },
+} );
 
 export default App;

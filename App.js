@@ -16,6 +16,8 @@ import {
 const App = () => {
   // Los HOOKS se colocan en la parte superior
 
+  const [modalVisible, setModalVisible] = useState(false)
+
   const nuevaCitaHandler = () => 
   {
     console.log('Diste click')

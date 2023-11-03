@@ -5,6 +5,7 @@ import {
   View,
   Text,
   SafeAreaView,
+  StyleSheet,
 } from 'react-native';
 
 // Función
@@ -27,9 +28,22 @@ const App = () => {
     */
 
     <SafeAreaView>
-      <Text>Administrado de Citas</Text>
+      <Text style={styles.titulo}>Administrado de Citas</Text>
       <Text>Veterinaria</Text>
     </SafeAreaView>
   );
 };
+
+// Se recomienda nombrarlo de esta forma
+const styles = StyleSheet.create({
+    titulo: {
+      textAlign: 'center',
+      textTransform: 'uppercase',
+      fontSize: 30,
+      color: '#374151',
+      fontWeight: '600',
+    }
+  }
+)
+
 export default App;

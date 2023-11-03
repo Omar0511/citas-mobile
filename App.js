@@ -8,6 +8,7 @@ import {
   StyleSheet,
   Button,
   Pressable,
+  Modal,
 } from 'react-native';
 
 // Función
@@ -51,6 +52,13 @@ const App = () => {
           Nueva Cita
         </Text>
       </Pressable>
+
+      <Modal
+        animationType='slide'
+        visible={false}
+      >
+        <Text>Desde Modal</Text>
+      </Modal>
     </SafeAreaView>
   );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {
   // Cada que usamos un componente, debemos importarlo aquí
@@ -14,6 +14,8 @@ import {
 // Función
 // Un componente siempre tendrá un RETURN
 const App = () => {
+  // Los HOOKS se colocan en la parte superior
+
   const nuevaCitaHandler = () => 
   {
     console.log('Diste click')

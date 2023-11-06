@@ -1,10 +1,15 @@
 import React from 'react'
+import { Modal, Text } from 'react-native'
 
 const Formulario = () => {
   return (
-    <div>
-      
-    </div>
+  <Modal
+    animationType='slide'
+    visible={modalVisible}
+  >
+    <Text>Desde Modal</Text>
+  </Modal>
+
   )
 }
 

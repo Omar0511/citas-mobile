@@ -11,13 +11,14 @@ import {
   Modal,
 } from 'react-native';
 
+import Formulario from './src/components/Formulario';
+
 // Función
 // Un componente siempre tendrá un RETURN
 const App = () => {
   // Los HOOKS se colocan en la parte superior
-
   const [modalVisible, setModalVisible] = useState(false)
-
+  
   const nuevaCitaHandler = () => 
   {
     console.log('Diste click')
@@ -58,12 +59,8 @@ const App = () => {
         </Text>
       </Pressable>
 
-      <Modal
-        animationType='slide'
-        visible={modalVisible}
-      >
-        <Text>Desde Modal</Text>
-      </Modal>
+      {/* De esta forma importamos los componenetes */}
+      <Formulario />
     </SafeAreaView>
   );
 };

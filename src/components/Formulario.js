@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Modal, Text, SafeAreaView, StyleSheet, TextInput, View, ScrollView } from 'react-native'
 
 const Formulario = ( {modalVisible} ) => {
+  const [paciente, setPaciente] = useState('')
+  const [propietario, setPropietario] = useState('')
+  const [email, setEmail] = useState('')
+  const [telefono, setTelefono] = useState('')
+  const [sintomas, setSintomas] = useState('')
+
   return (
     <Modal
       animationType='slide'
@@ -20,6 +26,8 @@ const Formulario = ( {modalVisible} ) => {
             style={styles.input}
             placeholder='Nombre Paciente'
             placeholderTextColor={'#666'}
+            value={paciente}
+            onChangeText={setPaciente}
           />
         </View>
 
@@ -29,6 +37,8 @@ const Formulario = ( {modalVisible} ) => {
             style={styles.input}
             placeholder='Nombre Propietario'
             placeholderTextColor={'#666'}
+            value={propietario}
+            onChangeText={setPropietario}
           />
         </View>
 
@@ -39,6 +49,8 @@ const Formulario = ( {modalVisible} ) => {
             placeholder='Email Propietario'
             placeholderTextColor={'#666'}
             keyboardType='email-address'
+            value={email}
+            onChangeText={setEmail}
           />
         </View>
 
@@ -49,15 +61,22 @@ const Formulario = ( {modalVisible} ) => {
             placeholder='Teléfono Propietario'
             placeholderTextColor={'#666'}
             keyboardType='number-pad'
+            value={telefono}
+            onChangeText={setTelefono}
+            maxLength={10}
           />
         </View>
 
         <View style={styles.campo}>
           <Text style={styles.label}>Síntomas</Text>
           <TextInput
-            style={styles.input}
+            style={[styles.input, styles.sintomasInput]}
             placeholder='Síntomas'
             placeholderTextColor={'#666'}
+            value={sintomas}
+            onChangeText={setSintomas}
+            multiline={true}
+            numberOfLines={5}
           />
         </View>
         </ScrollView>
@@ -101,6 +120,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     padding: 15,
     borderRadius: 10
+  },
+
+  sintomasInput: {
+    height: 100
   }
 
 });

@@ -1,15 +1,16 @@
 import React from 'react'
-import { Modal, Text } from 'react-native'
+import { Modal, Text, Button, SafeAreaView } from 'react-native'
 
-const Formulario = () => {
+const Formulario = ( { modalVisible} ) => {
+  
   return (
-  <Modal
-    animationType='slide'
-    visible={modalVisible}
-  >
-    <Text>Desde Modal</Text>
-  </Modal>
-
+    <Modal
+      animationType='slide'
+      visible={modalVisible}
+    >
+      <SafeAreaView>
+      </SafeAreaView>
+    </Modal>
   )
 }
 

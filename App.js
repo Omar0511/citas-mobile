@@ -18,11 +18,6 @@ import Formulario from './src/components/Formulario';
 const App = () => {
   // Los HOOKS se colocan en la parte superior
   const [modalVisible, setModalVisible] = useState(false)
-  
-  const nuevaCitaHandler = () => 
-  {
-    console.log('Diste click')
-  }
 
   return (
     /*
@@ -48,9 +43,8 @@ const App = () => {
       </Text>
 
       <Pressable 
-        onPress = { nuevaCitaHandler }
         style = { styles.btnNuevaCita }
-        onPress={() => setModalVisible(true)}
+        onPress = { () => setModalVisible(true) }
       >
         <Text 
           style = { styles.btnTextoNuevacita }
@@ -60,7 +54,9 @@ const App = () => {
       </Pressable>
 
       {/* De esta forma importamos los componenetes */}
-      <Formulario />
+      <Formulario 
+        modalVisible = {modalVisible}
+      />
     </SafeAreaView>
   );
 };

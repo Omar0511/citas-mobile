@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState} from 'react'
 
 import {
   // Cada que usamos un componente, debemos importarlo aquí
@@ -36,15 +36,14 @@ const App = () => {
     */
 
     <SafeAreaView style={styles.container}>
-      <Text style={styles.titulo}>
-        Administrador de Citas
+      <Text style={styles.titulo}>Administrador de Citas
         {''} {/* es un espacio */}
         <Text style={styles.tituloBold}>Veterinaria</Text>
       </Text>
 
       <Pressable 
-        style = { styles.btnNuevaCita }
-        onPress = { () => setModalVisible(true) }
+        style={ styles.btnNuevaCita } 
+        onPress={ () => setModalVisible(!modalVisible) }
       >
         <Text 
           style = { styles.btnTextoNuevacita }

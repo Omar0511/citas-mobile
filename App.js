@@ -11,7 +11,7 @@ import {
   Modal,
 } from 'react-native';
 
-import Formulario from './src/components/Formulario.js';
+import Formulario from './src/components/Formulario';
 
 // Función
 // Un componente siempre tendrá un RETURN
@@ -43,18 +43,15 @@ const App = () => {
 
       <Pressable 
         style={styles.btnNuevaCita} 
-        onPress={() => setModalVisible(true)}
+        onPress={() => setModalVisible(!modalVisible)}
       >
-        <Text 
-          style={styles.btnTextoNuevacita}
-        >
-          Nueva Cita
-        </Text> 
+        <Text style={styles.btnTextoNuevacita}>Nueva Cita</Text> 
       </Pressable>
 
       <Formulario 
-        modalVisible={modalVisible}
-      />
+          modalVisible={modalVisible}
+          setModalVisible={setModalVisible}
+        />
     </SafeAreaView>
   );
 };

@@ -18,7 +18,6 @@ import Formulario from './src/components/Formulario';
 const App = () => {
   // Los HOOKS se colocan en la parte superior
   const [modalVisible, setModalVisible] = useState(false)
-
   return (
     /*
       No podemos poner 2 ETIQUETAS

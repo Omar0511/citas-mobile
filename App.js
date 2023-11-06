@@ -92,6 +92,6 @@ const styles = StyleSheet.create( {
       fontWeight: '900',
       textTransform: 'uppercase'
     },
-} );
+} )
 
 export default App;

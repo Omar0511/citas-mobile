@@ -42,19 +42,18 @@ const App = () => {
       </Text>
 
       <Pressable 
-        style={ styles.btnNuevaCita } 
-        onPress={ () => setModalVisible(!modalVisible) }
+        style={styles.btnNuevaCita} 
+        onPress={() => setModalVisible(true)}
       >
         <Text 
-          style = { styles.btnTextoNuevacita }
+          style={styles.btnTextoNuevacita}
         >
           Nueva Cita
-        </Text>
+        </Text> 
       </Pressable>
 
-      {/* De esta forma importamos los componenetes */}
       <Formulario 
-        modalVisible = {modalVisible}
+        modalVisible={modalVisible}
       />
     </SafeAreaView>
   );

@@ -11,7 +11,7 @@ import {
   Modal,
 } from 'react-native';
 
-import Formulario from './src/components/Formulario';
+import Formulario from './src/components/Formulario.js';
 
 // Función
 // Un componente siempre tendrá un RETURN

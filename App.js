@@ -41,6 +41,7 @@ const App = () => {
                 return (
                   <Paciente 
                     item={item}
+                    setModalVisible={setModalVisible}
                   />
                 )
               }}

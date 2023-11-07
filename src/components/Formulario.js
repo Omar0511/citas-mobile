@@ -4,7 +4,7 @@ import { Modal, Text, SafeAreaView, StyleSheet, TextInput, View, ScrollView, Pre
 
 import DatePicker from 'react-native-date-picker'
 
-const Formulario = ( {modalVisible, setModalVisible} ) => {
+const Formulario = ( {modalVisible, setModalVisible, pacientes, setPacientes} ) => {
   const [paciente, setPaciente] = useState('')
   const [propietario, setPropietario] = useState('')
   const [email, setEmail] = useState('')
@@ -23,6 +23,17 @@ const Formulario = ( {modalVisible, setModalVisible} ) => {
 
       return
     }
+
+    const nuevoPaciente = {
+      paciente, 
+      propietario,
+      email,
+      telefono,
+      fecha,
+      sintomas
+    }
+
+    setPacientes([...pacientes, nuevoPaciente])
   }
 
   return (

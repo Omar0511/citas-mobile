@@ -131,83 +131,85 @@ const Formulario = ( {modalVisible, setModalVisible} ) => {
   )
 }
 
-const styles = StyleSheet.create({
-  contenido: {
-    backgroundColor: '#6D28D9',
-    flex: 1,
-  },
+const styles = StyleSheet.create(
+  {
+    contenido: {
+      backgroundColor: '#6D28D9',
+      flex: 1,
+    },
 
-  titulo: {
-    fontSize: 30,
-    fontWeight: '600',
-    textAlign: 'center',
-    marginTop: 30,
-    color: '#FFF'
-  },
+    titulo: {
+      fontSize: 30,
+      fontWeight: '600',
+      textAlign: 'center',
+      marginTop: 30,
+      color: '#FFF',
+    },
 
-  tituloBold: {
-    fontWeight: '900'
-  },
+    tituloBold: {
+      fontWeight: '900',
+    },
 
-  btnCancelar: {
-    marginVertical: 30,
-    backgroundColor: '#5827A4',
-    marginHorizontal: 30,
-    padding: 15,
-    borderRadius: 10
-  },
+    btnCancelar: {
+      marginVertical: 30,
+      backgroundColor: '#5827A4',
+      marginHorizontal: 30,
+      padding: 15,
+      borderRadius: 10,
+    },
 
-  btnCancelarTexto: {
-    color: '#FFF',
-    textAlign: 'center',
-    fontWeight: '900',
-    fontSize: 16,
-    textTransform: 'uppercase'
-  },
+    btnCancelarTexto: {
+      color: '#FFF',
+      textAlign: 'center',
+      fontWeight: '900',
+      fontSize: 16,
+      textTransform: 'uppercase',
+    },
 
-  campo: {
-    marginTop: 10,
-    marginHorizontal: 30,
-  },
+    campo: {
+      marginTop: 10,
+      marginHorizontal: 30,
+    },
 
-  label: {
-    color: '#FFF',
-    marginBottom: 10,
-    marginTop: 15,
-    fontSize: 20,
-    fontWeight: '600'
-  },
+    label: {
+      color: '#FFF',
+      marginBottom: 10,
+      marginTop: 15,
+      fontSize: 20,
+      fontWeight: '600',
+    },
 
-  input: {
-    backgroundColor: '#FFF',
-    padding: 15,
-    borderRadius: 10
-  },
+    input: {
+      backgroundColor: '#FFF',
+      padding: 15,
+      borderRadius: 10,
+    },
 
-  sintomasInput: {
-    height: 100
-  },
+    sintomasInput: {
+      height: 100,
+    },
 
-  fechaContenedor: {
-    backgroundColor: '#FFF',
-    borderRadius: 10
-  },
+    fechaContenedor: {
+      backgroundColor: '#FFF',
+      borderRadius: 10,
+    },
 
-  btnNuevaCita: {
-    marginVertical: 50,
-    backgroundColor: '#F59E0B',
-    paddingVertical: 15,
-    marginHorizontal: 30,
-    borderRadius: 10
-  },
+    btnNuevaCita: {
+      marginVertical: 50,
+      backgroundColor: '#F59E0B',
+      paddingVertical: 15,
+      marginHorizontal: 30,
+      borderRadius: 10,
+    },
 
-  btnNuevaCitaTexto: {
-    textAlign: 'center',
-    color: '#5827A4',
-    fontWeight: '900',
-    fontSize: 16,
-    textTransform: 'uppercase'
+    btnNuevaCitaTexto: {
+      textAlign: 'center',
+      color: '#5827A4',
+      fontWeight: '900',
+      fontSize: 16,
+      textTransform: 'uppercase',
+    }
   }
-})
+);
 
 export default Formulario

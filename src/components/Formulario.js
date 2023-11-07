@@ -25,6 +25,7 @@ const Formulario = ( {modalVisible, setModalVisible, pacientes, setPacientes} ) 
     }
 
     const nuevoPaciente = {
+      id: Date.now(),
       paciente, 
       propietario,
       email,
@@ -36,11 +37,11 @@ const Formulario = ( {modalVisible, setModalVisible, pacientes, setPacientes} ) 
     setPacientes([...pacientes, nuevoPaciente])
     setModalVisible(!modalVisible)
     setPaciente('')
-    setPropietariosetPaciente('')
-    setEmailsetPaciente('')
-    setTelefonosetPaciente('')
-    setFechasetPaciente('')
-    setSintomassetPaciente('')
+    setPropietario('')
+    setEmail('')
+    setTelefono('')
+    setFecha('')
+    setSintomas('')
   }
 
   return (

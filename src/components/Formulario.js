@@ -34,6 +34,13 @@ const Formulario = ( {modalVisible, setModalVisible, pacientes, setPacientes} ) 
     }
 
     setPacientes([...pacientes, nuevoPaciente])
+    setModalVisible(!modalVisible)
+    setPaciente('')
+    setPropietariosetPaciente('')
+    setEmailsetPaciente('')
+    setTelefonosetPaciente('')
+    setFechasetPaciente('')
+    setSintomassetPaciente('')
   }
 
   return (

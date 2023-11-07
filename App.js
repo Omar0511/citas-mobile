@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Text,
 } from 'react-native';
+
 import Formulario from './src/components/Formulario';
 
 const App = () => {

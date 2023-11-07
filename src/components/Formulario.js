@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+
 import { Modal, Text, SafeAreaView, StyleSheet, TextInput, View, ScrollView, Pressable, Alert } from 'react-native'
+
 import DatePicker from 'react-native-date-picker'
 
 const Formulario = ( {modalVisible, setModalVisible} ) => {
@@ -11,10 +13,10 @@ const Formulario = ( {modalVisible, setModalVisible} ) => {
   const [sintomas, setSintomas] = useState('')
 
   const handleCita = () => {
-    // Validar
     if ([paciente, propietario, email, fecha, sintomas].includes(''))
     {
-      Alert.alert(
+      Alert.alert
+      (
         'Error',
         'Todos los campos son obligatorios'
       )
@@ -35,7 +37,7 @@ const Formulario = ( {modalVisible, setModalVisible} ) => {
               <Text style={styles.tituloBold}>Cita</Text>
           </Text>
 
-          <Pressable 
+          <Pressable
             style={styles.btnCancelar}
             onLongPress={() => setModalVisible(!modalVisible)}
           >
@@ -114,11 +116,13 @@ const Formulario = ( {modalVisible, setModalVisible} ) => {
             />
           </View>
 
-          <Pressable 
+          <Pressable
             style={styles.btnNuevaCita}
             onPress={handleCita}
           >
-            <Text style={styles.btnNuevaCitaTexto}>Agregar Paciente</Text>
+            <Text style={styles.btnNuevaCitaTexto}>
+              Agregar Paciente
+            </Text>
           </Pressable>
 
         </ScrollView>

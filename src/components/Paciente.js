@@ -1,5 +1,6 @@
 import React from 'react'
 import { Text, View, StyleSheet, Pressable } from 'react-native'
+import { formatearFecha } from '../helpers';
 
 const Paciente = (
     {
@@ -13,19 +14,6 @@ const Paciente = (
 ) => 
 {
     const { paciente, fecha, id } = item
-
-    const formatearFecha = fecha => {
-        const nuevaFecha = new Date(fecha)
-
-        const opciones = {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        }
-
-        return nuevaFecha.toLocaleDateString('es-ES', opciones)
-    }
 
     return (
         <Pressable

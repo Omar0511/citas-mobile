@@ -1,7 +1,16 @@
 import React from 'react'
 import { Text, View, StyleSheet, Pressable } from 'react-native'
 
-const Paciente = ({item, setModalVisible, pacienteEditar, pacienteEliminar}) => {
+const Paciente = (
+    {
+        item, 
+        setModalVisible, 
+        pacienteEditar, 
+        pacienteEliminar,
+        setModalPaciente
+    }
+) => 
+{
     const { paciente, fecha, id } = item
 
     const formatearFecha = fecha => {
@@ -18,33 +27,37 @@ const Paciente = ({item, setModalVisible, pacienteEditar, pacienteEliminar}) => 
     }
 
     return (
-        <View style={styles.contenedor}>
-            <Text style={styles.label}>Paciente:</Text>
-            <Text style={styles.texto}>{paciente}</Text>
-            <Text style={styles.fecha}>{formatearFecha(fecha)}</Text>
+        <Pressable
+            onPress={() => setModalPaciente(true)}
+        >
+            <View style={styles.contenedor}>
+                <Text style={styles.label}>Paciente:</Text>
+                <Text style={styles.texto}>{paciente}</Text>
+                <Text style={styles.fecha}>{formatearFecha(fecha)}</Text>
 
-            <View style={styles.contenedorBotones}>
-                <Pressable
-                    style={[styles.btn, styles.bntEditar]}
-                    onPress={ () => {
-                        setModalVisible(true)
-                        pacienteEditar(id)
-                    }}
-                >
-                    <Text style={styles.btnTexto}>Editar</Text>
-                </Pressable>
+                <View style={styles.contenedorBotones}>
+                    <Pressable
+                        style={[styles.btn, styles.bntEditar]}
+                        onPress={ () => {
+                            setModalVisible(true)
+                            pacienteEditar(id)
+                        }}
+                    >
+                        <Text style={styles.btnTexto}>Editar</Text>
+                    </Pressable>
 
-                <Pressable
-                    style={[styles.btn, styles.bntEliminar]}
-                    onPress={() => {
-                            pacienteEliminar(id)
+                    <Pressable
+                        style={[styles.btn, styles.bntEliminar]}
+                        onPress={() => {
+                                pacienteEliminar(id)
+                            }
                         }
-                    }
-                >
-                    <Text style={styles.btnTexto}>Eliminar</Text>
-                </Pressable>
+                    >
+                        <Text style={styles.btnTexto}>Eliminar</Text>
+                    </Pressable>
+                </View>
             </View>
-        </View>
+        </Pressable>
     )
 };
 

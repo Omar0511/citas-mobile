@@ -20,7 +20,7 @@ const InformacionPaciente = ({paciente, setModalPaciente}) => {
                     </View>
             </Text>
 
-            <Text>{paciente.paciente}</Text>
+            <Text style={styles.contenido}>{paciente.paciente}</Text>
         </SafeAreaView>
     )
 }
@@ -58,6 +58,22 @@ const styles = StyleSheet.create(
             fontWeight: '900',
             fontSize: 16,
             textTransform: 'uppercase',
+        },
+
+        contenido: {
+            backgroundColor: '#FFF',
+            marginHorizontal: 30,
+            borderRadius: 10,
+            padding: 10,
+            height: 300,
+            shadowColor: "#000",
+            shadowOffset: {
+                width: 0,
+                height: 2,
+            },
+            shadowOpacity: 0.25,
+            shadowRadius: 3.84,
+            elevation: 5,
         },
     }
 )

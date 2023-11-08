@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import {
+  Alert,
   FlatList,
   Modal,
   Pressable,
@@ -20,6 +21,21 @@ const App = () => {
   const pacienteEditar = id => {
     const pacienteEditar = pacientes.filter(paciente => paciente.id === id)
     setPaciente(pacienteEditar[0])
+  }
+
+  const pacienteEliminar = id => {
+    Alert.alert(
+      '¿Desde eliminar al paciente?',
+      'Una vez eliminado, no se podrá recuperar...',
+      [
+        {text: 'Cancelar'},
+        { text: 'Si, deseo eliminar', onPress: () => {
+            const pacientesActualizados = pacientes.filter( pacientesState => pacientesState.id !== id)
+            setPacientes(pacientesActualizados)
+          } 
+        }
+      ]
+    )
   }
 
   return (
@@ -49,6 +65,7 @@ const App = () => {
                     item={item}
                     setModalVisible={setModalVisible}
                     pacienteEditar={pacienteEditar}
+                    pacienteEliminar={pacienteEliminar}
                   />
                 )
               }}

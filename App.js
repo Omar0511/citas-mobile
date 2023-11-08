@@ -40,6 +40,10 @@ const App = () => {
     )
   }
 
+  const cerrarModal = () => {
+    setModalVisible(false)
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.titulo}>
@@ -76,14 +80,17 @@ const App = () => {
             />
       }
 
-      <Formulario
-        modalVisible={modalVisible}
-        setModalVisible={setModalVisible}
-        pacientes={pacientes}
-        setPacientes={setPacientes}
-        paciente={paciente}
-        setPaciente={setPaciente}
-      />
+      {modalVisible &&
+        (
+          <Formulario
+          cerrarModal={cerrarModal}
+            pacientes={pacientes}
+            setPacientes={setPacientes}
+            paciente={paciente}
+            setPaciente={setPaciente}
+          />
+        )
+      }
 
       <Modal
         visible={modalPaciente}

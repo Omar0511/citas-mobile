@@ -4,8 +4,8 @@ import DatePicker from 'react-native-date-picker'
 
 const Formulario = ( 
   {
-    modalVisible, 
-    setModalVisible, 
+    modalVisible,
+    cerrarModal,
     pacientes, 
     setPacientes, 
     paciente: pacienteObj, 
@@ -74,7 +74,7 @@ const Formulario = (
       setPacientes([...pacientes, nuevoPaciente])
     }
 
-    setModalVisible(!modalVisible)
+    cerrarModal()
     setId('')
     setPaciente('')
     setPropietario('')
@@ -99,7 +99,7 @@ const Formulario = (
           <Pressable
             style={styles.btnCancelar}
             onPress={() => {
-              setModalVisible(!modalVisible)
+              cerrarModal()
               setPacienteApp({})
               setId('')
               setPropietario('')

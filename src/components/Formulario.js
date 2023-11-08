@@ -2,7 +2,18 @@ import React, { useState, useEffect } from 'react'
 import { Modal, Text, SafeAreaView, StyleSheet, TextInput, View, ScrollView, Pressable, Alert } from 'react-native'
 import DatePicker from 'react-native-date-picker'
 
-const Formulario = ( {modalVisible, setModalVisible, pacientes, setPacientes, paciente: pacienteObj} ) => {
+const Formulario = ( 
+  {
+    modalVisible, 
+    setModalVisible, 
+    pacientes, 
+    setPacientes, 
+    paciente: pacienteObj, 
+    setPaciente: setPacienteApp,
+  } 
+) => 
+{
+  const [id, setId] = useState('')
   const [paciente, setPaciente] = useState('')
   const [propietario, setPropietario] = useState('')
   const [email, setEmail] = useState('')
@@ -36,7 +47,6 @@ const Formulario = ( {modalVisible, setModalVisible, pacientes, setPacientes, pa
     }
 
     const nuevoPaciente = {
-      id: Date.now(),
       paciente, 
       propietario,
       email,
@@ -45,13 +55,32 @@ const Formulario = ( {modalVisible, setModalVisible, pacientes, setPacientes, pa
       sintomas
     }
 
-    setPacientes([...pacientes, nuevoPaciente])
+    if (id)
+    {
+      nuevoPaciente.id = id
+
+      const pacientesActualizados = pacientes.map( 
+        pacienteState => pacienteState.id === nuevoPaciente.id
+                          ? nuevoPaciente
+                          : pacienteState
+      )
+
+      setPacientes(pacientesActualizados)
+      setPacienteApp({})
+    }
+    else
+    {
+      nuevoPaciente.id = Date.now()
+      setPacientes([...pacientes, nuevoPaciente])
+    }
+
     setModalVisible(!modalVisible)
+    setId('')
     setPaciente('')
     setPropietario('')
     setEmail('')
     setTelefono('')
-    setFecha('')
+    setFecha(new Date())
     setSintomas('')
   }
 
@@ -69,7 +98,16 @@ const Formulario = ( {modalVisible, setModalVisible, pacientes, setPacientes, pa
 
           <Pressable
             style={styles.btnCancelar}
-            onPress={() => setModalVisible(!modalVisible)}
+            onPress={() => {
+              setModalVisible(!modalVisible)
+              setPacienteApp({})
+              setId('')
+              setPropietario('')
+              setEmail('')
+              setTelefono('')
+              setFecha(new Date())
+              setSintomas('')
+            }}
           >
             <Text style={styles.btnCancelarTexto}>X Cancelar</Text>
           </Pressable>

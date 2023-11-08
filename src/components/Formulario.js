@@ -32,7 +32,7 @@ const Formulario = (
       setFecha(pacienteObj.fecha)
       setSintomas(pacienteObj.sintomas)
     }
-  }, [])
+  }, [pacienteObj])
 
   const handleCita = () => {
     if ([paciente, propietario, email, fecha, sintomas].includes(''))
@@ -92,7 +92,7 @@ const Formulario = (
       <SafeAreaView style={styles.contenido}>
         <ScrollView>
           <Text style={styles.titulo}>
-            Nueva {''}
+            {pacienteObj.id ? 'Editar' : 'Nueva'} {''}
               <Text style={styles.tituloBold}>Cita</Text>
           </Text>
 
@@ -189,7 +189,7 @@ const Formulario = (
             onPress={handleCita}
           >
             <Text style={styles.btnNuevaCitaTexto}>
-              Agregar Paciente
+              {pacienteObj.id ? 'Editar' : 'Agregar'} Paciente
             </Text>
           </Pressable>
 

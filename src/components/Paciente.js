@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Text, View, StyleSheet, Pressable } from 'react-native'
 
 const Paciente = ({item, setModalVisible, pacienteEditar}) => {

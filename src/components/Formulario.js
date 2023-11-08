@@ -1,16 +1,27 @@
-import React, { useState } from 'react'
-
+import React, { useState, useEffect } from 'react'
 import { Modal, Text, SafeAreaView, StyleSheet, TextInput, View, ScrollView, Pressable, Alert } from 'react-native'
-
 import DatePicker from 'react-native-date-picker'
 
-const Formulario = ( {modalVisible, setModalVisible, pacientes, setPacientes} ) => {
+const Formulario = ( {modalVisible, setModalVisible, pacientes, setPacientes, paciente: pacienteObj} ) => {
   const [paciente, setPaciente] = useState('')
   const [propietario, setPropietario] = useState('')
   const [email, setEmail] = useState('')
   const [telefono, setTelefono] = useState('')
   const [fecha, setFecha] = useState(new Date())
   const [sintomas, setSintomas] = useState('')
+
+  useEffect(() => {
+    if (Object.keys(pacienteObj).length > 0)
+    {
+      setPaciente(pacienteObj.id)
+      setPaciente(pacienteObj.paciente)
+      setPropietario(pacienteObj.propietario)
+      setEmail(pacienteObj.email)
+      setTelefono(pacienteObj.telefono)
+      setFecha(pacienteObj.fecha)
+      setSintomas(pacienteObj.sintomas)
+    }
+  }, [])
 
   const handleCita = () => {
     if ([paciente, propietario, email, fecha, sintomas].includes(''))
@@ -58,7 +69,7 @@ const Formulario = ( {modalVisible, setModalVisible, pacientes, setPacientes} ) 
 
           <Pressable
             style={styles.btnCancelar}
-            onLongPress={() => setModalVisible(!modalVisible)}
+            onPress={() => setModalVisible(!modalVisible)}
           >
             <Text style={styles.btnCancelarTexto}>X Cancelar</Text>
           </Pressable>

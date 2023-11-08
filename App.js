@@ -13,8 +13,14 @@ import Formulario from './src/components/Formulario';
 import Paciente from './src/components/Paciente';
 
 const App = () => {
-  const [modalVisible, setModalVisible] = useState(false);
-  const [pacientes, setPacientes] = useState([]);
+  const [modalVisible, setModalVisible] = useState(false)
+  const [pacientes, setPacientes] = useState([])
+  const [paciente, setPaciente] = useState({})
+
+  const pacienteEditar = id => {
+    const pacienteEditar = pacientes.filter(paciente => paciente.id === id)
+    setPaciente(pacienteEditar[0])
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -34,7 +40,7 @@ const App = () => {
         pacientes.length === 0
           ? <Text style={styles.noPacientes}>No hay pacientes aún...</Text>
           : <FlatList
-          style={styles.listado}
+              style={styles.listado}
               data={pacientes}
               keyExtractor={(item) => item.id}
               renderItem={({item}) => {
@@ -42,6 +48,7 @@ const App = () => {
                   <Paciente 
                     item={item}
                     setModalVisible={setModalVisible}
+                    pacienteEditar={pacienteEditar}
                   />
                 )
               }}

@@ -24,7 +24,7 @@ const Formulario = (
   useEffect(() => {
     if (Object.keys(pacienteObj).length > 0)
     {
-      setPaciente(pacienteObj.id)
+      setId(pacienteObj.id)
       setPaciente(pacienteObj.paciente)
       setPropietario(pacienteObj.propietario)
       setEmail(pacienteObj.email)
@@ -114,6 +114,7 @@ const Formulario = (
 
           <View style={styles.campo}>
             <Text style={styles.label}>Nombre Paciente</Text>
+
             <TextInput
               style={styles.input}
               placeholder='Nombre Paciente'
@@ -125,6 +126,7 @@ const Formulario = (
 
           <View style={styles.campo}>
             <Text style={styles.label}>Nombre Propietario</Text>
+
             <TextInput
               style={styles.input}
               placeholder='Nombre Propietario'
@@ -136,6 +138,7 @@ const Formulario = (
 
           <View style={styles.campo}>
             <Text style={styles.label}>Email Propietario</Text>
+
             <TextInput
               style={styles.input}
               placeholder='Email Propietario'
@@ -173,6 +176,7 @@ const Formulario = (
 
           <View style={styles.campo}>
             <Text style={styles.label}>Síntomas</Text>
+
             <TextInput
               style={[styles.input, styles.sintomasInput]}
               placeholder='Síntomas'
@@ -180,7 +184,7 @@ const Formulario = (
               value={sintomas}
               onChangeText={setSintomas}
               multiline={true}
-              numberOfLines={5}
+              numberOfLines={4}
             />
           </View>
 

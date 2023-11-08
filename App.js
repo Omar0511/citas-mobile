@@ -83,7 +83,7 @@ const App = () => {
       {modalVisible &&
         (
           <Formulario
-          cerrarModal={cerrarModal}
+            cerrarModal={cerrarModal}
             pacientes={pacientes}
             setPacientes={setPacientes}
             paciente={paciente}

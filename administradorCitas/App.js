@@ -54,7 +54,11 @@ const App = () => {
         }
       ]
     );
-  }
+  };
+
+  const cerrarModal = () => {
+    setModalVisible(false);
+  };
   
   return (
     // SafeAreaView es un componente que asegura que el contenido del área segura se mantenga en toda la pantalla
@@ -99,7 +103,21 @@ const App = () => {
             />
       }
 
-      <Formulario
+      {/* Corriendo PERFOMANCE del COMPONENTE: FORMULARIO */}
+      {
+        modalVisible && (
+          <Formulario
+            cerrarModal={cerrarModal}
+            // nombre del prop / nombre función que se esta pasando
+            pacientes={pacientes}
+            setPacientes={setPacientes}
+            paciente={paciente}
+            setPaciente={setPaciente}
+          />
+        )
+      }
+
+      {/* <Formulario
         // nombre del prop / nombre función que se esta pasando
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
@@ -107,8 +125,9 @@ const App = () => {
         setPacientes={setPacientes}
         paciente={paciente}
         setPaciente={setPaciente}
-      />
+      /> */}
 
+      {/* Para mayor PERFORMANCE, es mejor que tenga el MODAL y se llame al Componente */}
       <Modal
         visible={modalPaciente}
         animationType='fade'

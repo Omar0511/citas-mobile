@@ -15,7 +15,7 @@ import {
 
 import DatePicker from 'react-native-date-picker';
 
-const Formulario = ({modalVisible, setModalVisible, pacientes, setPacientes, paciente: pacienteObj}) => {
+const Formulario = ({modalVisible, setModalVisible, pacientes, setPacientes, paciente: pacienteObj, setPaciente: setPacienteApp}) => {
     const [nombrePaciente, setNombrePaciente] = useState('');
     const [id, setId] = useState('');
     const [nombrePropietario, setNombrePropietario] = useState('');
@@ -71,7 +71,7 @@ const Formulario = ({modalVisible, setModalVisible, pacientes, setPacientes, pac
         }
 
         const nuevoPaciente = {
-            id: Date.now(),
+            // id: Date.now(),
             nombrePaciente,
             nombrePropietario,
             emailPropietario,
@@ -79,8 +79,30 @@ const Formulario = ({modalVisible, setModalVisible, pacientes, setPacientes, pac
             fecha,
             sintomasPaciente
         };
+
         // console.log(nuevoPaciente);
-        setPacientes( [...pacientes, nuevoPaciente] );
+
+        // Revisar si es un registro o es una edición
+        console.log(id);
+        if (id) {
+            nuevoPaciente.id = id;
+            // console.log('Edicion:', nuevoPaciente);
+
+            const pacientesActualizados = pacientes.map(
+                pacienteState => pacienteState.id === nuevoPaciente.id
+                                    ? nuevoPaciente
+                                    : pacienteState
+            );
+
+            // console.log(pacientesActualizados);
+
+            setPacientes(pacientesActualizados);
+            setPacienteApp({});
+        } else {
+            nuevoPaciente.id = Date.now();
+            setPacientes( [...pacientes, nuevoPaciente] );
+        }
+
         setModalVisible(!modalVisible);
         setNombrePaciente('');
         setNombrePropietario('');

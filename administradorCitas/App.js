@@ -12,12 +12,14 @@ import {
 
 import Formulario from './src/components/Formulario';
 import Paciente from './src/components/Paciente';
+import InformacionPaciente from './src/components/InformacionPaciente';
 
 const App = () => {
   // Los HOOKS se coloan en la parte superior, cliente = variable, setCliente = Función
   const [modalVisible, setModalVisible] = useState(false);
   const [pacientes, setPacientes] = useState([]);
   const [paciente, setPaciente] = useState({});
+  const [modalPaciente, setModalPaciente] = useState(false);
 
   const pacienteEditar = id => {
     console.log('Editando...', id);
@@ -88,6 +90,7 @@ const App = () => {
                       setModalVisible={setModalVisible}
                       pacienteEditar={pacienteEditar}
                       pacienteEliminar={pacienteEliminar}
+                      setModalPaciente={setModalPaciente}
                     />
                   )
                 }
@@ -104,6 +107,13 @@ const App = () => {
         paciente={paciente}
         setPaciente={setPaciente}
       />
+
+      <Modal
+        visible={modalPaciente}
+        animationType='fade'
+      >
+        <InformacionPaciente />
+      </Modal>
     </SafeAreaView>
   );
 };

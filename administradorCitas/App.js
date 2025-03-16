@@ -7,6 +7,7 @@ import {
   Pressable,
   Modal,
   FlatList,
+  Alert,
 } from 'react-native';
 
 import Formulario from './src/components/Formulario';
@@ -26,6 +27,32 @@ const App = () => {
 
     setPaciente(pacienteEditar[0]);
   };
+
+  const pacienteEliminar = id => {
+    console.log('Eliminar...', id);
+
+    Alert.alert(
+      '¿Deseas eliminar este paciente?',
+      'Un paciente eliminado no se puede recuperar...',
+      [
+        {
+          text: 'Cancelar'
+        },
+
+        {
+          text: 'Si, Eliminar', onPress: () => {
+            console.log('Paciente Eliminado!');
+
+            const pacientesActualizados = pacientes.filter(
+              pacienteState => pacienteState.id !== id
+            );
+
+            setPacientes(pacientesActualizados);
+          }
+        }
+      ]
+    );
+  }
   
   return (
     // SafeAreaView es un componente que asegura que el contenido del área segura se mantenga en toda la pantalla
@@ -60,6 +87,7 @@ const App = () => {
                       item={item}
                       setModalVisible={setModalVisible}
                       pacienteEditar={pacienteEditar}
+                      pacienteEliminar={pacienteEliminar}
                     />
                   )
                 }

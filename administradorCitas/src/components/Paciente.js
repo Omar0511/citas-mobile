@@ -1,22 +1,23 @@
 import React from 'react';
 import {Text, View, StyleSheet, Pressable} from 'react-native';
+import { formatearFEcha } from '../helpers';
 
 const Paciente = (  {item, setModalVisible, setPaciente, pacienteEditar, pacienteEliminar, setModalPaciente} ) => {
     // console.log(item);
     const { nombrePaciente, fecha, id } = item;
 
-    const formatearFEcha = fecha => {
-        const nuevaFecha = new Date(fecha);
+    // const formatearFEcha = fecha => {
+    //     const nuevaFecha = new Date(fecha);
 
-        const opciones = {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        };
+    //     const opciones = {
+    //         weekday: 'long',
+    //         year: 'numeric',
+    //         month: 'long',
+    //         day: 'numeric'
+    //     };
 
-        return nuevaFecha.toLocaleDateString('es-ES', opciones);
-    };
+    //     return nuevaFecha.toLocaleDateString('es-ES', opciones);
+    // };
 
     return (
         <Pressable

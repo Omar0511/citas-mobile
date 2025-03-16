@@ -115,6 +115,7 @@ const App = () => {
       >
         <InformacionPaciente 
           paciente={paciente}
+          setPaciente={setPaciente}
           setModalPaciente={setModalPaciente}
         />
       </Modal>

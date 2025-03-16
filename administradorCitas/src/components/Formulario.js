@@ -43,7 +43,7 @@ const Formulario = ({modalVisible, setModalVisible, pacientes, setPacientes, pac
 
         console.log('Formulario Listo...');
         console.log(pacienteObj);
-    }, []);
+    }, [pacienteObj]);
 
     const handleCita = () => {
         // console.log('Agregar cita');
@@ -104,6 +104,7 @@ const Formulario = ({modalVisible, setModalVisible, pacientes, setPacientes, pac
         }
 
         setModalVisible(!modalVisible);
+        setId('');
         setNombrePaciente('');
         setNombrePropietario('');
         setEmailPropietario('');
@@ -120,13 +121,27 @@ const Formulario = ({modalVisible, setModalVisible, pacientes, setPacientes, pac
             <SafeAreaView style={styles.contenido}>
                 <ScrollView>
                     <Text style={styles.titulo}>
-                        Nueva {''}
+                        {
+                            pacienteObj.id
+                                ? 'Editar'
+                                : 'Nueva'
+                        } {''}
                         <Text style={styles.tituloBold}>Cita</Text>
                     </Text>
 
                     <Pressable 
                         style={styles.btnCancelar}
-                        onLongPress={ () => setModalVisible(!modalVisible) }
+                        onLongPress={ () => {
+                            setModalVisible(!modalVisible)
+                            setPacienteApp({})
+                            setId('');
+                            setNombrePaciente('');
+                            setNombrePropietario('');
+                            setEmailPropietario('');
+                            setTelefonoPropietario('');
+                            setFecha(new Date());
+                            setSintomasPaciente('');
+                        }}
                     >
                         <Text style={styles.btnCancelarTexto}>X Cancelar</Text>
                     </Pressable>
@@ -207,7 +222,7 @@ const Formulario = ({modalVisible, setModalVisible, pacientes, setPacientes, pac
                         style={styles.btnNuevaCita}
                         onPress={handleCita}
                     >
-                        <Text style={styles.btnNuevaCitaTexto}>Agregar Paciente</Text>
+                        <Text style={styles.btnNuevaCitaTexto}>{ pacienteObj.id ? 'Editar' : 'Agregar'} Paciente</Text>
                     </Pressable>
 
                 </ScrollView>

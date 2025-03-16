@@ -21,12 +21,14 @@ const InformacionPaciente = ({
                 </Pressable>
             </View>
 
-            <Text>{paciente.nombrePaciente}</Text>
-            <Text>{paciente.nombrePropietario}</Text>
-            <Text>{paciente.emailPropietario}</Text>
-            <Text>{paciente.telefonoPropietario}</Text>
-            {/* <Text>{paciente.fecha}</Text> */}
-            <Text>{paciente.sintomasPaciente}</Text>
+            <View style={styles.contenido}>
+                <Text>{paciente.nombrePaciente}</Text>
+                <Text>{paciente.nombrePropietario}</Text>
+                <Text>{paciente.emailPropietario}</Text>
+                <Text>{paciente.telefonoPropietario}</Text>
+                {/* <Text>{paciente.fecha}</Text> */}
+                <Text>{paciente.sintomasPaciente}</Text>
+            </View>
         </SafeAreaView>
     )
 };
@@ -64,6 +66,24 @@ const styles = StyleSheet.create({
         fontSize: 16,
         textTransform: 'uppercase',
     },
+
+    // Sombras: https://ethercreative.github.io/react-native-shadow-generator/
+    contenido: {
+        backgroundColor: '#FFF',
+        marginHorizontal: 30,
+        borderRadius: 10,
+        padding: 10,
+        height: 300,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+
+        elevation: 5,
+    }
 });
 
 export default InformacionPaciente;
